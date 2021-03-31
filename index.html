@@ -33,9 +33,6 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
-    <a-assets>
-            <audio id="sound" src="https://nodirproject.github.io/ikbol/m.mp3" preload="auto"></audio>
-        </a-assets>
     <!-- we use cors proxy to avoid cross-origin problems -->
     <a-nft
       type="nft"
@@ -45,22 +42,9 @@
       smoothTolerance=".01"
       smoothThreshold="5"
     >
-      <a-image id="b" src="https://nodirproject.github.io/ikbol/ta.jpg" position="50 0 0" rotation="-90 0 0" width="250" height="160" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
+      <a-sound src="https://nodirproject.github.io/ikbol/m.mp3" autoplay="true" ></a-sound>
+      <a-image id="b" src="https://nodirproject.github.io/ikbol/ta.jpg" position="50 0 0" rotation="-90 0 0" width="550" height="200" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
     </a-nft>
-    <a-entity sound="src: #sound" autoplay="false"></a-entity>
     <a-entity camera></a-entity>
   </a-scene>
-  <script>
-AFRAME.registerComponent('soundhandler', {
-    tick: function () {
-           var entity = document.querySelector('[sound]');
-         if (document.querySelector('a-nft').object3D.visible == true) {
-            entity.components.sound.playSound();
-        } else {
-            entity.components.sound.pauseSound();
-        }
-
-     }
-});
-</script>
 </body>
